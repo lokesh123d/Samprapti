@@ -1,0 +1,126 @@
+.about-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-images {
+    position: relative;
+    flex: 1;
+    height: 600px;
+    /* Define a height for the composition */
+    display: flex;
+    align-items: center;
+    /* Center the main image vertically if needed, or top align */
+}
+
+/* The Big Image */
+.img-big-wrapper {
+    width: 85%;
+    height: 85%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    /* Slight rounding for premium feel */
+    z-index: 1;
+}
+
+.img-big {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+/* The Small Floating Image */
+.img-small-wrapper {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    right: 0;
+    bottom: 0;
+    border: 8px solid #fff;
+    /* White border to separate from big image */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.section-tag {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.section-desc {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .about-images {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 50px;
+    }
+
+    .img-big-wrapper {
+        width: 90%;
+        height: 90%;
+    }
+
+    .img-small-wrapper {
+        width: 40%;
+        height: 40%;
+        right: 0;
+        bottom: 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+}

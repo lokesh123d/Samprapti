@@ -1,0 +1,339 @@
+/* Global Clean Up & Updates */
+:root {
+  --primary: #004d99;
+  --secondary: #7bb661;
+  --accent: #d2a42a;
+  --text-dark: #333;
+  --text-light: #555;
+  --background: #fff;
+  --off-white: #f9f9f9;
+  --gray-border: #eee;
+  --footer-bg: #111;
+
+  --font-heading: 'Arial', 'Helvetica', sans-serif;
+  --font-body: 'Arial', 'Helvetica', sans-serif;
+
+  --container-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-off-white {
+  background-color: var(--off-white);
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  margin: 15px auto 0;
+}
+
+.title-underline-left {
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  margin: 15px 0 20px;
+}
+
+/* Navbar Simple */
+.navbar.simple-nav {
+  height: 80px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo-simple {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary);
+  text-decoration: none;
+  border: 3px solid var(--primary);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /* Just because S is circular-ish, keeps it contained */
+}
+
+/* Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Updates */
+.hero-slider-container {
+  height: 85vh;
+  /* Taller hero */
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
+  /* Offset for navbar */
+  background: black;
+}
+
+.hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+  /* Gradient for depth */
+}
+
+.hero-content.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  width: 90%;
+  max-width: 1100px;
+}
+
+/* TFI Style Typography */
+.tfi-style-text {
+  font-size: 4.5rem;
+  color: white;
+  font-weight: 700;
+  text-transform: none;
+  /* TFI text is sentence case often */
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.highlight-blue {
+  color: #4dc9e6;
+  /* Cyan/Light Blue */
+}
+
+.underline-accent {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 5px;
+  background-color: #e56a54;
+  /* Orange/Red accent */
+}
+
+.hero-subtitle-large {
+  font-size: 1.5rem;
+  color: #eee;
+  font-weight: 300;
+  display: none;
+  /* Hidden for TFI style focus on main text */
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+}
+
+.slider-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Facilities Cards */
+.facility-card {
+  background: white;
+  padding: 40px;
+  border-left: 5px solid var(--secondary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.facility-card:hover {
+  transform: translateY(-5px);
+  border-left-color: var(--primary);
+}
+
+.facility-title {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.facility-text {
+  color: #555;
+  text-align: justify;
+}
+
+/* Review Cards */
+.review-card {
+  background: white;
+  border: 1px solid #eee;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.review-text {
+  font-style: italic;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.review-author {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* Gallery/Activities */
+.activity-grid {
+  display: grid;
+  grid-template-areas:
+    "img1 img2 img3"
+    "img4 img5 img3";
+  gap: 15px;
+  height: 600px;
+}
+
+.act-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.div1 {
+  grid-area: img1;
+}
+
+.div2 {
+  grid-area: img2;
+}
+
+.div3 {
+  grid-area: img3;
+}
+
+/* Tall image */
+.div4 {
+  grid-area: img4;
+}
+
+.div5 {
+  grid-area: img5;
+}
+
+@media (max-width: 768px) {
+  .tfi-style-text {
+    font-size: 2.2rem;
+  }
+
+  .activity-grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .act-img {
+    height: 250px;
+  }
+
+  .hero-slider-container {
+    height: 60vh;
+  }
+}
+
+/* Footer (reuse existing classes but darken) */
+.footer {
+  background: #000;
+  color: #777;
+}
