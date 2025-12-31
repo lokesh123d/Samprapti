@@ -204,3 +204,28 @@
         font-size: 2.5rem;
     }
 }
+
+@media (max-width: 600px) {
+    .contact-title {
+        font-size: 2rem;
+    }
+
+    .contact-hero {
+        padding: 40px 15px 30px;
+    }
+
+    .contact-form-wrapper {
+        padding: 25px 20px;
+    }
+
+    .info-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .icon-box {
+        width: 50px;
+        height: 50px;
+    }
+}
