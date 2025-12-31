@@ -17,23 +17,7 @@ const About = () => {
     useEffect(() => {
         const el = sectionRef.current;
 
-        // Parallax Effect for the Big Image content
-        // We animate the image INSIDE the wrapper to create parallax
-        if (bigImageRef.current) {
-            gsap.fromTo(bigImageRef.current.querySelector('img'),
-                { scale: 1.2, y: -20 },
-                {
-                    scale: 1,
-                    y: 20,
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                }
-            );
-        }
+        // Big image is now stable (no parallax), handled by CSS hover effect for zoom only.
 
         // Initial Reveal Animation
         const tl = gsap.timeline({
@@ -60,8 +44,8 @@ const About = () => {
 
         // Floating Loop for Small Image to make it feel alive
         gsap.to(smallImageRef.current, {
-            y: -7, // Reduced from -15 for a subtler float
-            duration: 3,
+            y: -3, // Reduced to minimum for very subtle float
+            duration: 4, // Slower for gentler movement
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut"
@@ -104,19 +88,7 @@ const About = () => {
                         Every donation, every volunteer hour, and every act of kindness ripples outwards, creating a stronger foundation for our community.
                     </p>
 
-                    <button className="btn-primary" style={{
-                        padding: '15px 40px',
-                        backgroundColor: '#004d99',
-                        color: 'white',
-                        border: 'none',
-                        fontSize: '1rem',
-                        cursor: 'pointer',
-                        marginTop: '20px',
-                        borderRadius: '50px',
-                        fontWeight: '600',
-                        letterSpacing: '0.5px',
-                        boxShadow: '0 4px 15px rgba(0,77,153,0.3)'
-                    }}>
+                    <button className="btn-about">
                         Learn Our Story
                     </button>
                 </div>

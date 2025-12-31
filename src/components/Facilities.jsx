@@ -2,6 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import childrenEating from '../assets/images/children-eating.png';
+import classroomDist from '../assets/images/classroom-dist.png';
+import communityEvent from '../assets/images/community-event.png';
+import elderlyGroup from '../assets/images/elderly-group.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Facilities = () => {
@@ -11,18 +16,22 @@ const Facilities = () => {
     const facilities = [
         {
             title: "Accommodation",
+            image: classroomDist,
             text: "There are single, double and triple occupancy Rooms with attached Toilets, Dormitory, Office room, Pooja Room, Dining rooms on each floor, Kitchen, Laundry, Visitors room, Recreation room, Library and an open courtyard."
         },
         {
             title: "Food",
+            image: childrenEating,
             text: "Food is strictly vegetarian and varies from day to day. Inmates get fresh vegetables and fruits besides rice, chapati, ragi, dhalia, dhal and salads, vegetable curries, milk, coffee, tea, sprouts, etc. apart from regular proteins and vitamins."
         },
         {
             title: "Health Facilities",
+            image: elderlyGroup,
             text: "Basic medical equipment is available at here such as Oxygen, suction machine facility, GRBS measurement glucometers, Nebulizer, Pulse oximeter, etc., maintained by the Staff nurses and paramedical staff of under the guidance of the Doctor."
         },
         {
             title: "Recreational Activities/Library",
+            image: communityEvent,
             text: "We provide simple entertainment and information facilities like newspapers and TV. The library is stocked with an interesting selection of magazines and novels in English, Kannada, Telugu and Tamil."
         }
     ];
@@ -74,13 +83,24 @@ const Facilities = () => {
                     {facilities.map((fac, index) => (
                         <div
                             key={index}
-                            className="facility-card"
+                            className="facility-card-container"
                             ref={el => cardsRef.current[index] = el}
                         >
-                            <h3 className="facility-title">{fac.title}</h3>
-                            <p className="facility-text">
-                                {fac.text}
-                            </p>
+                            <div className="flip-card-inner">
+                                <div className="flip-card-front">
+                                    <img src={fac.image} alt={fac.title} />
+                                    <div className="front-title-container">
+                                        <h3>{fac.title}</h3>
+                                    </div>
+                                </div>
+                                <div className="flip-card-back">
+                                    <h3 className="back-title">{fac.title}</h3>
+                                    <p className="facility-text-back">
+                                        {fac.text}
+                                    </p>
+                                    <a href="#" className="read-more-btn">Read More</a>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

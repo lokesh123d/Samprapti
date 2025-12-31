@@ -1,14 +1,20 @@
 /* Global Clean Up & Updates */
 :root {
-  --primary: #004d99;
-  --secondary: #7bb661;
-  --accent: #d2a42a;
-  --text-dark: #333;
+  --primary: #1F3C5B;
+  /* Soft Navy Blue */
+  --secondary: #4CAF50;
+  /* Leaf Green */
+  --accent: #F4A261;
+  /* Warm Orange */
+  --text-dark: #1F3C5B;
+  /* Using Primary as main text color for "Pure Impact" feel */
   --text-light: #555;
-  --background: #fff;
-  --off-white: #f9f9f9;
-  --gray-border: #eee;
-  --footer-bg: #111;
+  --background: #FAFAFA;
+  /* Ivory */
+  --off-white: #F0F0F0;
+  /* Slightly darker for sections */
+  --gray-border: #e0e0e0;
+  --footer-bg: #FAFAFA;
 
   --font-heading: 'Arial', 'Helvetica', sans-serif;
   --font-body: 'Arial', 'Helvetica', sans-serif;
@@ -38,6 +44,12 @@ body {
 
 .section-padding {
   padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 50px 0;
+  }
 }
 
 .text-center {
@@ -171,7 +183,6 @@ body {
   color: white;
   font-weight: 700;
   text-transform: none;
-  /* TFI text is sentence case often */
   line-height: 1.1;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -179,8 +190,8 @@ body {
 }
 
 .highlight-blue {
-  color: #4dc9e6;
-  /* Cyan/Light Blue */
+  color: var(--accent);
+  /* Warm Orange */
 }
 
 .underline-accent {
@@ -195,8 +206,8 @@ body {
   bottom: 2px;
   width: 100%;
   height: 5px;
-  background-color: #e56a54;
-  /* Orange/Red accent */
+  background-color: var(--accent);
+  /* Warm Orange */
 }
 
 .hero-subtitle-large {
@@ -204,7 +215,6 @@ body {
   color: #eee;
   font-weight: 300;
   display: none;
-  /* Hidden for TFI style focus on main text */
 }
 
 .slider-nav {
@@ -229,60 +239,151 @@ body {
   border-color: var(--primary);
 }
 
-/* Facilities Cards */
-.facility-card {
-  background: white;
-  padding: 40px;
-  border-left: 5px solid var(--secondary);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
+/* Facilities Cards - Flip Effect */
+.facility-card-container {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  opacity: 0;
 }
 
-.facility-card:hover {
-  transform: translateY(-5px);
-  border-left-color: var(--primary);
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.facility-title {
-  color: var(--primary);
+.facility-card-container:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Front Side */
+.flip-card-front {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+}
+
+.front-title-container {
+  height: 15%;
+  background-color: var(--secondary);
+  /* Leaf Green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.front-title-container h3 {
+  color: white;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Back Side */
+.flip-card-back {
+  background-color: var(--primary);
+  /* Navy Blue */
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border: 1px solid var(--primary);
+}
+
+.back-title {
   font-size: 1.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  color: var(--accent);
+  /* Orange Highlight */
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
 }
 
-.facility-text {
-  color: #555;
-  text-align: justify;
+.facility-text-back {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f0f0f0;
 }
 
-/* Review Cards */
+.read-more-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.read-more-btn:hover {
+  background-color: white;
+  color: var(--primary);
+}
+
 /* Review Cards Enhanced */
 .review-card {
   background: white;
-  border: 1px solid #eee;
+  border: 1px solid var(--gray-border);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 77, 153, 0.05);
-  /* Blue tinted shadow */
+  box-shadow: 0 4px 15px rgba(31, 60, 91, 0.05);
+  /* Navy tint */
   border-top: 4px solid var(--secondary);
-  /* Green accent */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 77, 153, 0.15);
+  box-shadow: 0 10px 25px rgba(31, 60, 91, 0.15);
 }
 
 .review-text {
   font-style: italic;
-  color: #555;
+  color: var(--text-light);
   margin-bottom: 20px;
   line-height: 1.6;
 }
 
 .review-author {
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--gray-border);
   padding-top: 15px;
 }
 
@@ -328,7 +429,14 @@ body {
 
 @media (max-width: 768px) {
   .tfi-style-text {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    /* Reduced from 2.2rem */
+  }
+
+  .hero-content.centered {
+    width: 95%;
+    /* Use more width on mobile */
+    padding: 0 10px;
   }
 
   .activity-grid {
@@ -343,5 +451,17 @@ body {
 
   .hero-slider-container {
     height: 60vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .tfi-style-text {
+    font-size: 1.6rem;
+    /* Even smaller for portrait phones */
+  }
+
+  .hero-slider-container {
+    height: 50vh;
+    /* Adjust height for small screens */
   }
 }

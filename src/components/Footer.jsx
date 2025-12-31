@@ -53,7 +53,7 @@ const Footer = () => {
                             <li><a href="#about-us"><ChevronRight size={14} /> About Us</a></li>
                             <li><a href="#services"><ChevronRight size={14} /> Our Services</a></li>
                             <li><a href="#gallery"><ChevronRight size={14} /> Gallery</a></li>
-                            <li><a href="#donate" style={{ color: '#e56a54', fontWeight: 'bold' }}><Heart size={14} fill="#e56a54" /> Donate</a></li>
+                            <li><a href="#donate" style={{ color: '#000', fontWeight: 'bold' }}><Heart size={14} fill="#f9e58e" color="#000" /> Donate</a></li>
                         </ul>
                     </div>
 
@@ -77,12 +77,12 @@ const Footer = () => {
                         <h4 className="footer-heading">Our Impact</h4>
                         <ul className="footer-links">
                             <li className="impact-stat">
-                                <span style={{ display: 'block', color: 'white', fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '5px' }}>200+</span>
-                                Children Supported
+                                <span style={{ display: 'block', color: '#BDD855', fontWeight: '900', fontSize: '1.5rem', marginBottom: '5px' }}>200+</span>
+                                <span style={{ color: '#333', fontWeight: '600' }}>Children Supported</span>
                             </li>
                             <li className="impact-stat">
-                                <span style={{ display: 'block', color: 'white', fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '5px', marginTop: '10px' }}>100+</span>
-                                Elderly Care Provided
+                                <span style={{ display: 'block', color: '#4dc9e6', fontWeight: '900', fontSize: '1.5rem', marginBottom: '5px', marginTop: '15px' }}>100+</span>
+                                <span style={{ color: '#333', fontWeight: '600' }}>Elderly Care Provided</span>
                             </li>
                         </ul>
                     </div>
