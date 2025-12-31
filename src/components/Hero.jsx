@@ -78,11 +78,7 @@ const Hero = () => {
                 </h1>
             </div>
 
-            {/* Navigation for manual control */}
-            <div className="slider-nav">
-                <button className="slider-btn" onClick={prevSlide}><ChevronLeft color="white" /></button>
-                <button className="slider-btn" onClick={nextSlide}><ChevronRight color="white" /></button>
-            </div>
+            {/* Navigation removed as per user request */}
         </section>
     );
 };

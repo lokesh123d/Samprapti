@@ -61,12 +61,12 @@ const Reviews = () => {
                             ref={el => cardsRef.current[index] = el}
                             style={{ opacity: 0 }} // Initial opacity usually handled by GSAP but good to ensure no flash
                         >
-                            <div className="stars" style={{ color: 'gold', marginBottom: '10px' }}>
-                                <Star size={16} fill="gold" />
-                                <Star size={16} fill="gold" />
-                                <Star size={16} fill="gold" />
-                                <Star size={16} fill="gold" />
-                                <Star size={16} fill="gold" />
+                            <div className="stars" style={{ color: '#ffb400', marginBottom: '15px', display: 'flex', gap: '2px' }}>
+                                <Star size={18} fill="#ffb400" strokeWidth={0} />
+                                <Star size={18} fill="#ffb400" strokeWidth={0} />
+                                <Star size={18} fill="#ffb400" strokeWidth={0} />
+                                <Star size={18} fill="#ffb400" strokeWidth={0} />
+                                <Star size={18} fill="#ffb400" strokeWidth={0} />
                             </div>
                             <p className="review-text">"{review.text}"</p>
                             <div className="review-author">

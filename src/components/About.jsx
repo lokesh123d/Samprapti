@@ -60,7 +60,7 @@ const About = () => {
 
         // Floating Loop for Small Image to make it feel alive
         gsap.to(smallImageRef.current, {
-            y: -15,
+            y: -7, // Reduced from -15 for a subtler float
             duration: 3,
             repeat: -1,
             yoyo: true,

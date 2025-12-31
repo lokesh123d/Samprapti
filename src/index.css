@@ -255,24 +255,38 @@ body {
 }
 
 /* Review Cards */
+/* Review Cards Enhanced */
 .review-card {
   background: white;
   border: 1px solid #eee;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 15px rgba(0, 77, 153, 0.05);
+  /* Blue tinted shadow */
+  border-top: 4px solid var(--secondary);
+  /* Green accent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 77, 153, 0.15);
 }
 
 .review-text {
   font-style: italic;
-  color: #444;
+  color: #555;
   margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 .review-author {
   border-top: 1px solid #eee;
   padding-top: 15px;
 }
+
+/* Footer override removed to allow Footer.css (Blue Theme) to apply */
 
 /* Gallery/Activities */
 .activity-grid {
@@ -330,10 +344,4 @@ body {
   .hero-slider-container {
     height: 60vh;
   }
-}
-
-/* Footer (reuse existing classes but darken) */
-.footer {
-  background: #000;
-  color: #777;
 }
